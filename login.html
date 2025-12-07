@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login – TrendMint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:"Poppins",sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #020617 100%);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1rem;
+    }
+    .card {
+      width:100%;
+      max-width:380px;
+      background:radial-gradient(circle at top left, rgba(34,197,94,0.14), #020617);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.4);
+      box-shadow:0 18px 40px rgba(15,23,42,0.9);
+      padding:1.4rem 1.5rem 1.6rem;
+    }
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+      margin-bottom:1rem;
+    }
+    .logo-icon {
+      width:32px;height:32px;border-radius:12px;
+      background:radial-gradient(circle at 20% 0%, #22c55e, #0ea5e9);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:1rem;box-shadow:0 0 20px rgba(34,197,94,0.6);
+    }
+    .logo-text-main {font-weight:600;font-size:1rem;}
+    h1 {font-size:1.1rem;margin-bottom:0.3rem;}
+    p {font-size:0.78rem;color:var(--muted);margin-bottom:1rem;}
+    label {font-size:0.78rem;margin-bottom:0.25rem;display:block;}
+    input {
+      width:100%;padding:0.45rem 0.7rem;border-radius:10px;
+      border:1px solid var(--border);background:#020617;color:var(--text);
+      font-size:0.85rem;outline:none;
+    }
+    input:focus {border-color:rgba(34,197,94,0.6);}
+    .field {margin-bottom:0.7rem;}
+    .btn {
+      width:100%;margin-top:0.5rem;
+      border-radius:999px;border:none;
+      padding:0.55rem 0.8rem;
+      font-size:0.88rem;font-weight:600;
+      background:linear-gradient(135deg,#22c55e,#0ea5e9);
+      color:#020617;cursor:pointer;
+      box-shadow:0 0 22px rgba(34,197,94,0.7);
+    }
+    .meta {
+      display:flex;justify-content:space-between;align-items:center;
+      margin-top:0.4rem;font-size:0.72rem;color:var(--muted);
+    }
+    .meta a {color:var(--accent);text-decoration:none;}
+    .status {font-size:0.75rem;margin-top:0.6rem;}
+    .status.ok {color:#22c55e;}
+    .status.err {color:#f97373;}
+    .back {
+      margin-top:0.9rem;font-size:0.78rem;text-align:center;
+    }
+    .back a {color:var(--accent);text-decoration:none;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <div class="logo-icon">TM</div>
+      <div class="logo-text-main">TRENDMINT Login</div>
+    </div>
+    <h1>Welcome back</h1>
+    <p>Login is only for saving your name on this device (no real account / password stored on server).</p>
+
+    <div class="field">
+      <label for="name">Name / Username</label>
+      <input id="name" type="text" placeholder="Enter your name" />
+    </div>
+
+    <div class="field">
+      <label for="pin">Simple 4-digit PIN (local only)</label>
+      <input id="pin" type="password" maxlength="4" placeholder="1234" />
+    </div>
+
+    <button class="btn" onclick="handleLogin()">Login</button>
+
+    <div class="meta">
+      <span id="savedUser"></span>
+      <a href="#" onclick="logout(event)">Logout</a>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <div class="back">
+      <a href="index.html">← Back to TrendMint</a>
+    </div>
+  </div>
+
+  <script>
+    const NAME_KEY = "trendmint_name";
+    const PIN_KEY = "trendmint_pin";
+
+    function loadSavedUser() {
+      const name = localStorage.getItem(NAME_KEY);
+      const savedUser = document.getElementById("savedUser");
+      if (name) {
+        savedUser.textContent = "Logged in as: " + name;
+      } else {
+        savedUser.textContent = "Not logged in";
+      }
+    }
+
+    function handleLogin() {
+      const name = document.getElementById("name").value.trim();
+      const pin = document.getElementById("pin").value.trim();
+      const status = document.getElementById("status");
+
+      if (!name || !pin || pin.length !== 4) {
+        status.textContent = "Please enter a name and 4-digit PIN.";
+        status.className = "status err";
+        return;
+      }
+
+      // Save locally only (no server)
+      localStorage.setItem(NAME_KEY, name);
+      localStorage.setItem(PIN_KEY, pin);
+
+      status.textContent = "Login saved on this device. Redirecting to home…";
+      status.className = "status ok";
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 800);
+    }
+
+    function logout(e) {
+      e.preventDefault();
+      localStorage.removeItem(NAME_KEY);
+      localStorage.removeItem(PIN_KEY);
+      document.getElementById("status").textContent = "Logged out on this device.";
+      document.getElementById("status").className = "status ok";
+      loadSavedUser();
+    }
+
+    loadSavedUser();
+  </script>
+</body>
+        </html>
+        
