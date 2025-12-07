@@ -45,8 +45,6 @@
       display: block;
     }
 
-    /* Layout */
-
     .wrapper {
       max-width: 1100px;
       margin: 0 auto;
@@ -137,8 +135,6 @@
       font-size: 1.4rem;
       cursor: pointer;
     }
-
-    /* Hero */
 
     .hero {
       display: grid;
@@ -334,8 +330,6 @@
       color: var(--danger);
     }
 
-    /* Sections */
-
     section {
       padding: 1.7rem 0 0.4rem;
     }
@@ -376,8 +370,6 @@
       border: 1px solid var(--border);
       color: var(--muted);
     }
-
-    /* Cards */
 
     .grid {
       display: grid;
@@ -445,8 +437,6 @@
       color: var(--accent);
     }
 
-    /* Newsletter */
-
     .newsletter {
       margin-top: 1.1rem;
       border-radius: 18px;
@@ -496,8 +486,6 @@
       color: var(--muted);
       margin-top: 0.25rem;
     }
-
-    /* Footer */
 
     footer {
       padding: 1.8rem 0 0.5rem;
@@ -549,11 +537,6 @@
       font-size: 0.68rem;
     }
 
-    .copy a {
-      font-size: 0.68rem;
-      text-decoration: underline;
-    }
-
     .scroll-top {
       position: fixed;
       bottom: 1.2rem;
@@ -563,16 +546,13 @@
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.7);
       background: rgba(15, 23, 42, 0.95);
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       font-size: 1.1rem;
       cursor: pointer;
-      display: none;
       z-index: 20;
     }
-
-    /* Responsive */
 
     @media (max-width: 880px) {
       .hero {
@@ -651,8 +631,9 @@
       <div class="menu-toggle" id="menuToggle">☰</div>
 
       <nav id="nav">
-        <a href="#latest">Latest</a>
-        <a href="#crypto">Crypto</a>
+        <a href="#latest">Technology</a>
+        <a href="#crypto">Crypto & Trading</a>
+        <a href="#ipo">IPO</a>
         <a href="#earn">Earn Money</a>
         <a href="#news">World News</a>
         <button class="nav-cta" onclick="scrollToNewsletter()">Join Free Alerts</button>
@@ -698,73 +679,76 @@
         </p>
       </div>
 
+      <!-- RIGHT: LIVE CRYPTO SNAPSHOT -->
       <div class="hero-right">
         <div class="glass-card">
           <div class="kpi-row">
             <div class="kpi">
               <div class="kpi-label">BTC • Bitcoin</div>
               <div class="kpi-value">
-                $XX,XXX
-                <span class="kpi-badge">+2.5%</span>
+                <span id="btcPrice">$--</span>
+                <span class="kpi-badge" id="btcChange">--%</span>
               </div>
             </div>
             <div class="kpi">
               <div class="kpi-label">ETH • Ethereum</div>
               <div class="kpi-value">
-                $X,XXX
-                <span class="kpi-badge">+1.3%</span>
+                <span id="ethPrice">$--</span>
+                <span class="kpi-badge" id="ethChange">--%</span>
               </div>
             </div>
             <div class="kpi">
-              <div class="kpi-label">NIFTY 50</div>
+              <div class="kpi-label">BNB • BNB</div>
               <div class="kpi-value">
-                XX,XXX
-                <span class="kpi-badge">-0.7%</span>
+                <span id="bnbPrice">$--</span>
+                <span class="kpi-badge" id="bnbChange">--%</span>
               </div>
             </div>
           </div>
 
           <div class="ticker">
-            <span class="label">Today’s snapshot</span>
-            <span class="green">🟢 Risk-on</span>
-            <span class="red">🔴 Crypto volatile</span>
+            <span class="label">Live crypto snapshot</span>
+            <span class="green" id="marketMood">Loading…</span>
+            <span class="red">High risk • DYOR</span>
           </div>
         </div>
 
         <div class="glass-card">
           <div class="kpi-label" style="margin-bottom:0.2rem;">Upcoming IPO Radar</div>
           <div class="kpi-value" style="margin-bottom:0.4rem;">
-            3 companies on watchlist
+            Hand-picked upcoming listings
           </div>
           <ul style="font-size:0.73rem; color:var(--muted); list-style:disc; padding-left:1.1rem;">
-            <li><strong>Company A</strong> – Tech • High growth • Risk: Medium</li>
-            <li><strong>Company B</strong> – Fintech • Profit making • Risk: Low</li>
-            <li><strong>Company C</strong> – Crypto exchange • Risk: High</li>
+            <li><strong>TechNova Ltd (Example)</strong> – IT Services • Risk: Medium</li>
+            <li><strong>FinEdge Finance (Example)</strong> – NBFC • Risk: Low</li>
+            <li><strong>CoinX Global (Example)</strong> – Crypto exchange • Risk: High</li>
           </ul>
+          <p style="font-size:0.7rem; color:var(--muted); margin-top:0.35rem;">
+            Latest real IPO list: open
+            <a href="https://www.google.com/search?q=upcoming+ipo+india" target="_blank" style="text-decoration:underline;">live IPO feed ↗</a>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- LATEST POSTS -->
+    <!-- LATEST TECH / GENERAL -->
     <section id="latest">
       <div class="section-header">
         <div>
           <h2 class="section-title">Latest from <span>TRENDMINT</span></h2>
-          <p class="section-subtitle">Add your latest posts manually here by editing this file.</p>
+          <p class="section-subtitle">Ready-made articles about technology, tools and digital life.</p>
         </div>
       </div>
 
       <div class="badge-row">
         <span class="badge">Technology</span>
-        <span class="badge">Crypto</span>
-        <span class="badge">Trading</span>
-        <span class="badge">IPO</span>
-        <span class="badge">Online Earning</span>
-        <span class="badge">World News</span>
+        <span class="badge">AI Tools</span>
+        <span class="badge">Smartphones</span>
+        <span class="badge">Apps</span>
+        <span class="badge">Productivity</span>
       </div>
 
       <div class="grid">
-        <!-- Card 1 -->
         <article class="card">
           <div class="card-tag">
             <span class="type">Technology</span>
@@ -776,42 +760,40 @@
             and beginner friendly. Perfect for students & creators.
           </p>
           <div class="card-meta">
-            <span>Updated: DD/MM/YYYY</span>
+            <span>Updated: 07/12/2025</span>
             <span class="read">Read full post →</span>
           </div>
         </article>
 
-        <!-- Card 2 -->
         <article class="card">
           <div class="card-tag">
-            <span class="type">Crypto</span>
+            <span class="type">Gadgets</span>
             <span>3 min read</span>
           </div>
-          <h3 class="card-title">What is Bitcoin in the simplest Hindi + English mix?</h3>
+          <h3 class="card-title">How to choose a budget smartphone without getting confused.</h3>
           <p class="card-excerpt">
-            Bitcoin ko ek digital gold ki tarah samajho. Is article mein hum totally
-            beginner friendly breakdown karte hain – without boring jargon.
+            Processor, RAM, storage, camera, battery – samajhne ka simple formula
+            jisse aap bina overthinking ke phone choose kar sakte ho.
           </p>
           <div class="card-meta">
-            <span>Updated: DD/MM/YYYY</span>
-            <span class="read">Read full post →</span>
+            <span>Guide</span>
+            <span class="read">See checklist →</span>
           </div>
         </article>
 
-        <!-- Card 3 -->
         <article class="card">
           <div class="card-tag">
-            <span class="type">Earn Money</span>
+            <span class="type">Productivity</span>
             <span>4 min read</span>
           </div>
-          <h3 class="card-title">7 legit ways to earn online without investment.</h3>
+          <h3 class="card-title">Free apps that turn your phone into a mini office.</h3>
           <p class="card-excerpt">
-            Freelancing, content writing, micro-tasks, and more. No fake apps,
-            only real methods that need time & skills.
+            Notes, to-do, calendar, cloud storage and password manager – sab free
+            tools jo daily life ko easy bana dete hain.
           </p>
           <div class="card-meta">
-            <span>Updated: DD/MM/YYYY</span>
-            <span class="read">Read full post →</span>
+            <span>Starter pack</span>
+            <span class="read">Open tools →</span>
           </div>
         </article>
       </div>
@@ -826,32 +808,52 @@
         </div>
       </div>
 
+      <!-- LIVE CRYPTO MARKET SECTION -->
+      <div class="glass-card" style="margin-bottom:1rem;">
+        <div class="section-title" style="font-size:0.95rem; margin-bottom:0.35rem;">
+          Live crypto market overview
+        </div>
+        <p style="font-size:0.75rem; color:var(--muted); margin-bottom:0.7rem;">
+          Data auto-updates from public market APIs when someone opens this page.
+          Numbers may not be exact to the second, but give a quick idea of trend.
+        </p>
+        <div class="kpi-row" id="cryptoGrid">
+          <!-- Boxes are already defined above in hero, this is just extra info -->
+          <div class="kpi">
+            <div class="kpi-label">Top 3 coins (24h change)</div>
+            <div class="kpi-value" style="font-size:0.8rem;">
+              <span id="topSummary">Loading…</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="grid">
         <article class="card">
           <div class="card-tag">
             <span class="type">Crypto Basics</span>
             <span>Starter</span>
           </div>
-          <h3 class="card-title">Spot, Futures, Options – What’s the difference?</h3>
+          <h3 class="card-title">What is Bitcoin in the simplest Hindi + English mix?</h3>
           <p class="card-excerpt">
-            Trading ke teen popular tareeke – simple examples ke saath explain.
-            High risk segments ke bare mein honest talk.
+            Bitcoin ko ek digital gold ki tarah samajho. Is article mein hum totally
+            beginner friendly breakdown karte hain – without boring jargon.
           </p>
           <div class="card-meta">
-            <span>Level: Beginner</span>
-            <span class="read">Open guide →</span>
+            <span>For beginners</span>
+            <span class="read">Open explainer →</span>
           </div>
         </article>
 
         <article class="card">
           <div class="card-tag">
-            <span class="type">Risk Warning</span>
+            <span class="type">Trading Risk</span>
             <span>Important</span>
           </div>
           <h3 class="card-title">Why 90% traders lose money in leverage trading.</h3>
           <p class="card-excerpt">
-            Leverage se profit bhi bada hota hai, loss bhi. Dekhiye common
-            mistakes jo log karte hain and kaise bacha ja sakta hai.
+            Leverage se profit bhi bada hota hai, loss bhi. Dekhiye common mistakes
+            jo log karte hain and kaise bacha ja sakta hai.
           </p>
           <div class="card-meta">
             <span>Must read</span>
@@ -872,6 +874,69 @@
           <div class="card-meta">
             <span>Resources list</span>
             <span class="read">Check tools →</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- IPO SECTION -->
+    <section id="ipo">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">New <span>IPO</span> & listings</h2>
+          <p class="section-subtitle">Simple IPO explanation + live external IPO feeds.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-tag">
+            <span class="type">IPO Basics</span>
+            <span>Beginner</span>
+          </div>
+          <h3 class="card-title">What is an IPO? Simple guide in Hindi + English.</h3>
+          <p class="card-excerpt">
+            IPO = jab koi company pehli baar public se paisa raise karti hai aur
+            apne shares stock market me list karwati hai. Yaha full breakdown milega.
+          </p>
+          <div class="card-meta">
+            <span>Concept</span>
+            <span class="read">Learn basics →</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">
+            <span class="type">Research</span>
+            <span>Checklist</span>
+          </div>
+          <h3 class="card-title">Before applying for any IPO, check these 7 points.</h3>
+          <p class="card-excerpt">
+            Company ka business, profit, debt, valuation aur risk – sabko simple
+            7-step list se quickly judge kar sakte ho.
+          </p>
+          <div class="card-meta">
+            <span>Risk control</span>
+            <span class="read">See 7-point list →</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">
+            <span class="type">Live Data</span>
+            <span>External</span>
+          </div>
+          <h3 class="card-title">Open live upcoming IPO list (external official sources).</h3>
+          <p class="card-excerpt">
+            Sabse accurate IPO list hamesha official exchanges & trusted finance
+            portals par milti hai. Yaha se aap unko direct open kar sakte ho.
+          </p>
+          <div class="card-meta">
+            <span>
+              <a href="https://www.google.com/search?q=upcoming+ipo+india" target="_blank"
+                 style="text-decoration:underline;">Open live IPO feed ↗</a>
+            </span>
+            <span class="read">Visit now →</span>
           </div>
         </article>
       </div>
@@ -942,7 +1007,7 @@
       <div class="section-header">
         <div>
           <h2 class="section-title">World news & <span>trends</span></h2>
-          <p class="section-subtitle">Short updates that actually matter for tech & money.</p>
+          <p class="section-subtitle">Short updates + direct links to live global feeds.</p>
         </div>
       </div>
 
@@ -950,47 +1015,56 @@
         <article class="card">
           <div class="card-tag">
             <span class="type">Global Tech</span>
-            <span>Flash update</span>
+            <span>Live feed</span>
           </div>
-          <h3 class="card-title">Big tech launches that can change daily life.</h3>
+          <h3 class="card-title">Open live technology news stream.</h3>
           <p class="card-excerpt">
-            Yaha par aap latest smartphones, AI features, OS updates and more ka
-            simple breakdown likh sakte ho.
+            Latest smartphones, AI features, OS updates and more – directly from
+            big global portals via Google News.
           </p>
           <div class="card-meta">
-            <span>Update: DD/MM/YYYY</span>
-            <span class="read">View recap →</span>
+            <span>
+              <a href="https://news.google.com/search?q=technology&hl=en-IN&gl=IN&ceid=IN:en"
+                 target="_blank" style="text-decoration:underline;">Open tech feed ↗</a>
+            </span>
+            <span class="read">View now →</span>
           </div>
         </article>
 
         <article class="card">
           <div class="card-tag">
-            <span class="type">India Focus</span>
-            <span>Policy</span>
+            <span class="type">World News</span>
+            <span>Live feed</span>
           </div>
-          <h3 class="card-title">Important rule changes that affect investors.</h3>
+          <h3 class="card-title">World headlines that matter for money & markets.</h3>
           <p class="card-excerpt">
-            Tax rules, KYC updates, RBI guidelines – jo cheezein directly aapke
-            paiso ko impact karti hain.
+            Macro events, policy changes, big economic news – all directly from
+            trusted news portals in one click.
           </p>
           <div class="card-meta">
-            <span>For reference only</span>
-            <span class="read">Know more →</span>
+            <span>
+              <a href="https://news.google.com/topstories?hl=en-IN&gl=IN&ceid=IN:en"
+                 target="_blank" style="text-decoration:underline;">Open world feed ↗</a>
+            </span>
+            <span class="read">View now →</span>
           </div>
         </article>
 
         <article class="card">
           <div class="card-tag">
-            <span class="type">Trend Watch</span>
-            <span>Insights</span>
+            <span class="type">Trends</span>
+            <span>Ideas</span>
           </div>
-          <h3 class="card-title">Viral trends that you can convert into content or business.</h3>
+          <h3 class="card-title">Viral trends you can convert into content or business.</h3>
           <p class="card-excerpt">
-            Jo cheezein log dekh rahe hain, wahi content & product ke liye
-            opportunity ban sakti hai. Yaha aap ideas share kar sakte hain.
+            Social media trends, searches and popular topics aapko content aur
+            small business idea de sakte hain.
           </p>
           <div class="card-meta">
-            <span>Creator / Founder</span>
+            <span>
+              <a href="https://trends.google.com/trends/trendingsearches/daily?geo=IN"
+                 target="_blank" style="text-decoration:underline;">Open trending now ↗</a>
+            </span>
             <span class="read">See opportunities →</span>
           </div>
         </article>
@@ -1010,11 +1084,11 @@
 
         <div>
           <form class="newsletter-form" onsubmit="handleSubscribe(event)">
-            <input type="email" id="emailInput" placeholder="Enter your email (feature coming soon)" required disabled />
+            <input type="email" id="emailInput" placeholder="Newsletter feature coming soon" required disabled />
             <button type="submit" class="btn btn-primary">Notify me</button>
           </form>
           <p class="newsletter-small">
-            (You can later connect this form to any email service like Mailchimp or Google Forms.)
+            (Later you can connect this form to Google Forms / Mailchimp if you want – not required now.)
           </p>
         </div>
       </div>
@@ -1031,8 +1105,9 @@
           registered financial advisor before making decisions.
         </div>
         <div class="footer-links">
-          <a href="#latest">Latest posts</a>
+          <a href="#latest">Technology</a>
           <a href="#crypto">Crypto & trading</a>
+          <a href="#ipo">IPO</a>
           <a href="#earn">Online earning</a>
           <a href="#news">World news</a>
           <a href="#newsletter">Newsletter</a>
@@ -1052,12 +1127,9 @@
     // Mobile menu
     const menuToggle = document.getElementById("menuToggle");
     const nav = document.getElementById("nav");
-
     menuToggle.addEventListener("click", () => {
       nav.classList.toggle("open");
     });
-
-    // Close menu on link click (mobile)
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         nav.classList.remove("open");
@@ -1075,7 +1147,6 @@
 
     // Scroll to top button
     const scrollTopBtn = document.getElementById("scrollTopBtn");
-
     window.addEventListener("scroll", () => {
       if (window.scrollY > 300) {
         scrollTopBtn.style.display = "flex";
@@ -1083,7 +1154,6 @@
         scrollTopBtn.style.display = "none";
       }
     });
-
     scrollTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -1091,8 +1161,71 @@
     // Newsletter stub
     function handleSubscribe(e) {
       e.preventDefault();
-      alert("Newsletter feature will be connected soon. For now, edit index.html and link to Google Form or your email tool.");
+      alert("Newsletter feature will be connected later. Website is fully usable without it.");
     }
+
+    // LIVE CRYPTO DATA (CoinGecko public API)
+    async function loadCrypto() {
+      try {
+        const res = await fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin&vs_currencies=usd&include_24hr_change=true"
+        );
+        if (!res.ok) throw new Error("Network error");
+        const data = await res.json();
+
+        function setCoin(id, priceId, changeId) {
+          const coin = data[id];
+          if (!coin) return;
+          const priceEl = document.getElementById(priceId);
+          const changeEl = document.getElementById(changeId);
+          if (priceEl) priceEl.textContent = "$" + coin.usd.toLocaleString();
+          if (changeEl) {
+            const change = coin.usd_24h_change || 0;
+            const fixed = change.toFixed(2);
+            changeEl.textContent = (change >= 0 ? "+" : "") + fixed + "%";
+            changeEl.style.color = change >= 0 ? "#22c55e" : "#ef4444";
+          }
+        }
+
+        setCoin("bitcoin", "btcPrice", "btcChange");
+        setCoin("ethereum", "ethPrice", "ethChange");
+        setCoin("binancecoin", "bnbPrice", "bnbChange");
+
+        // Summary / mood
+        const btc = data.bitcoin?.usd_24h_change || 0;
+        const eth = data.ethereum?.usd_24h_change || 0;
+        const bnb = data.binancecoin?.usd_24h_change || 0;
+        const avg = (btc + eth + bnb) / 3;
+        const moodEl = document.getElementById("marketMood");
+        const topSummary = document.getElementById("topSummary");
+        if (moodEl) {
+          if (avg > 2) moodEl.textContent = "🟢 Market slightly bullish";
+          else if (avg > 0) moodEl.textContent = "🟢 Mildly positive";
+          else if (avg < -2) moodEl.textContent = "🔴 Strong selling pressure";
+          else moodEl.textContent = "🟡 Sideways / mixed";
+        }
+        if (topSummary) {
+          topSummary.textContent =
+            "BTC " +
+            btc.toFixed(2) +
+            "% • ETH " +
+            eth.toFixed(2) +
+            "% • BNB " +
+            bnb.toFixed(2) +
+            "% (24h)";
+        }
+      } catch (err) {
+        const moodEl = document.getElementById("marketMood");
+        if (moodEl) moodEl.textContent = "Unable to load live data";
+        const topSummary = document.getElementById("topSummary");
+        if (topSummary) topSummary.textContent = "Check your internet connection.";
+        console.error(err);
+      }
+    }
+
+    loadCrypto();
   </script>
 </body>
 </html>
+
+      
