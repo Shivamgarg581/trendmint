@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TrendMint – Tech, Crypto, Money & News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#020617;
+      --card:#0f172a;
+      --accent:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body {
+      font-family:"Poppins",sans-serif;
+      background:radial-gradient(circle at top,#111827 0,#020617 45%,#020617 100%);
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    a { text-decoration:none; color:inherit; }
+
+    /* ================= HEADER ================= */
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:0.7rem 1rem;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(12px);
+      background:radial-gradient(circle at top,
+        rgba(15,23,42,.96),
+        rgba(2,6,23,.96)
+      );
+    }
+
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+    }
+
+    .logo-icon {
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#22c55e,#0ea5e9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#020617;
+    }
+
+    .logo-text-main {
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .logo-text-sub {
+      font-size:.7rem;
+      color:var(--muted);
+      margin-top:-2px;
+    }
+
+    nav {
+      display:flex;
+      align-items:center;
+      gap:.7rem;
+      font-size:.82rem;
+    }
+
+    nav a {
+      padding:.35rem .7rem;
+      border-radius:999px;
+      color:var(--muted);
+      transition:.2s;
+    }
+
+    nav a:hover {
+      background:#020617;
+      color:var(--text);
+      border:1px solid var(--border);
+    }
+
+    .nav-cta {
+      padding:.4rem .9rem;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-size:.75rem;
+      font-weight:600;
+      background:linear-gradient(135deg,#22c55e,#0ea5e9);
+      color:#020617;
+      box-shadow:0 0 18px rgba(34,197,94,.5);
+    }
+
+    .menu-toggle {
+      display:none;
+      font-size:1.4rem;
+      cursor:pointer;
+    }
+
+    /* ================= HERO ================= */
+
+    .container {
+      max-width:1100px;
+      margin:0 auto;
+      padding:1.5rem 1rem 3rem;
+    }
+
+    .hero {
+      margin-top:1.2rem;
+    }
+
+    .hero h1 {
+      font-size:clamp(1.8rem,3.2vw,2.4rem);
+      line-height:1.2;
+      margin-bottom:.6rem;
+    }
+
+    .hero span {
+      background:linear-gradient(135deg,#22c55e,#0ea5e9);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p {
+      max-width:600px;
+      font-size:.95rem;
+      color:var(--muted);
+      margin-bottom:1rem;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      margin-top:2rem;
+    }
+
+    section h2 {
+      font-size:1.2rem;
+      margin-bottom:.3rem;
+    }
+
+    .sub {
+      font-size:.8rem;
+      color:var(--muted);
+      margin-bottom:.9rem;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:.9rem;
+    }
+
+    .card {
+      background:radial-gradient(circle at top left,rgba(34,197,94,.06),#020617);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:.9rem;
+      transition:.2s;
+    }
+
+    .card:hover {
+      transform:translateY(-3px);
+      box-shadow:0 15px 35px rgba(0,0,0,.6);
+    }
+
+    .card h3 {
+      font-size:.9rem;
+      margin-bottom:.3rem;
+    }
+
+    .card p {
+      font-size:.75rem;
+      color:var(--muted);
+      margin-bottom:.4rem;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      margin-top:3rem;
+      padding-top:1rem;
+      border-top:1px solid var(--border);
+      font-size:.75rem;
+      color:var(--muted);
+    }
+
+    footer .links {
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+      margin-bottom:.5rem;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:768px) {
+      nav {
+        position:absolute;
+        top:60px;
+        right:1rem;
+        background:#020617;
+        border:1px solid var(--border);
+        border-radius:14px;
+        flex-direction:column;
+        padding:.5rem;
+        display:none;
+      }
+
+      nav.open {
+        display:flex;
+      }
+
+      .menu-toggle {
+        display:block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">TM</div>
+    <div>
+      <div class="logo-text-main">TRENDMINT</div>
+      <div class="logo-text-sub">Tech • Crypto • Money • Trends</div>
+    </div>
+  </div>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+
+  <nav id="nav">
+    <a href="#tech">Technology</a>
+    <a href="#crypto">Crypto</a>
+    <a href="#ipo">IPO</a>
+    <a href="#earn">Earn Money</a>
+    <a href="news.html">Latest News</a>
+    <a href="login.html">Login</a>
+    <button class="nav-cta">Join Free Alerts</button>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <h1>All-in-one hub for <span>Tech, Crypto, IPO & Online Earning</span></h1>
+    <p>
+      TrendMint brings daily technology updates, crypto insights, earning ideas,
+      IPO basics and world trends – in simple language.
+    </p>
+  </div>
+
+  <section id="tech">
+    <h2>Technology</h2>
+    <p class="sub">Latest tools, apps & digital life</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Top AI tools for daily work</h3>
+        <p>Free AI tools that help students & creators save time.</p>
+      </div>
+      <div class="card">
+        <h3>Best budget smartphones</h3>
+        <p>How to choose a phone without overpaying.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="crypto">
+    <h2>Crypto & Trading</h2>
+    <p class="sub">Simple explanations, no hype</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Bitcoin basics</h3>
+        <p>Understand BTC in easiest language.</p>
+      </div>
+      <div class="card">
+        <h3>Why most traders lose money</h3>
+        <p>Risk management basics.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ipo">
+    <h2>IPO</h2>
+    <p class="sub">New listings & beginner guides</p>
+    <div class="grid">
+      <div class="card">
+        <h3>What is an IPO?</h3>
+        <p>IPO explained in simple words.</p>
+      </div>
+      <div class="card">
+        <h3>Before applying IPO</h3>
+        <p>7 things you must check.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="earn">
+    <h2>Earn Money Online</h2>
+    <p class="sub">Legit & skill-based ideas</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Start freelancing</h3>
+        <p>Content writing, editing & more.</p>
+      </div>
+      <div class="card">
+        <h3>Avoid earning scams</h3>
+        <p>Red flags you must know.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="news.html">Latest News</a>
+      <a href="login.html">Login</a>
+      <a href="#">Disclaimer</a>
+    </div>
+    © 2025 TrendMint • Information purpose only
+  </footer>
+</div>
+
+<script>
+  const menuToggle=document.getElementById("menuToggle");
+  const nav=document.getElementById("nav");
+  menuToggle.onclick=()=>nav.classList.toggle("open");
+</script>
+
+</body>
+</html>
